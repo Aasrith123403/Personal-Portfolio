@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aasrith Arvapalli - Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
@@ -21,11 +20,11 @@
                 <a href="#resume" class="nav-link">Resume</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <div class="nav-toggle" id="nav-toggle">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -44,13 +43,15 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="profile-placeholder">
-                    <i class="fas fa-user"></i>
-                </div>
+                <img
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2b381604-a2a6-4a3c-ae5d-b5bb1592c881.jpg-9txtphdlLSlJdkqZlaTViiHzERdfsa.jpeg"
+                  alt="Profile photo"
+                  class="profile-photo"
+                  loading="eager"
+                />
             </div>
         </div>
     </section>
-
 
     <section id="about" class="about">
         <div class="container">
@@ -99,7 +100,6 @@
         </div>
     </section>
 
-
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
@@ -117,7 +117,7 @@
                             <span class="tech-tag">C#</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Project</a>
+                            <a href="https://github.com/Aasrith123403/Just-a-normal-platformer" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -133,9 +133,6 @@
                             <span class="tech-tag">UI/UX</span>
                             <span class="tech-tag">Design</span>
                             <span class="tech-tag">Frontend</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">View Design</a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +150,7 @@
                             <span class="tech-tag">Web Dev</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">View Code</a>
+                            <a href="https://github.com/Aasrith123403/Flashcard-website" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -161,10 +158,15 @@
         </div>
     </section>
 
-
     <section id="resume" class="resume">
         <div class="container">
             <h2 class="section-title">Resume</h2>
+
+            <div class="resume-actions" aria-label="Resume actions">
+                <a class="btn btn-primary" href="{{ url_for('static', filename='resume.pdf') }}" download>Download Resume</a>
+                <a class="btn btn-secondary" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank" rel="noopener noreferrer">View Resume</a>
+            </div>
+
             <div class="resume-content">
                 <div class="resume-section">
                     <h3>Experience</h3>
@@ -217,7 +219,6 @@
         </div>
     </section>
 
-
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -247,10 +248,10 @@
                 </div>
                 <form class="contact-form" id="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required />
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required />
                     </div>
                     <div class="form-group">
                         <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -261,18 +262,35 @@
         </div>
     </section>
 
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2025 Aasrith Arvapalli. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+      const toggle = document.getElementById('nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('active');
+        });
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    </script>
 </body>
 </html>
