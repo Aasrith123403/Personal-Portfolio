@@ -163,8 +163,8 @@
             <h2 class="section-title">Resume</h2>
 
             <div class="resume-actions" aria-label="Resume actions">
-                <a class="btn btn-primary" href="{{ url_for('static', filename='resume.pdf') }}" download>Download Resume</a>
-                <a class="btn btn-secondary" href="{{ url_for('static', filename='resume.pdf') }}" target="_blank" rel="noopener noreferrer">View Resume</a>
+                <a class="btn btn-primary" href="{{ url_for('resume_download') }}">Download Resume</a>
+                <a class="btn btn-secondary" href="{{ url_for('resume_view') }}" target="_blank" rel="noopener noreferrer">View Resume</a>
             </div>
 
             <div class="resume-content">
