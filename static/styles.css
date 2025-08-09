@@ -595,3 +595,21 @@ body {
     .certifications { margin: 0 10px; }
 }
 
+.profile-photo {
+    width: min(320px, 60vw);
+    aspect-ratio: 1 / 1;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
